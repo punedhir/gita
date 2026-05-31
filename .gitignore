@@ -1,0 +1,26 @@
+#ENV Files
+.env 
+.env.*
+*.env 
+!.env.example
+
+#Python
+__pycache__/
+*.pyc 
+*.pyo 
+.venv/
+venv/ 
+env/
+
+#IDE
+.vscode/
+.idea/ 
+
+#Data/Models
+*.bin 
+*.onnx
+chroma_store/
+gita_store/
+chroma_gita/
+.kokoro
+
