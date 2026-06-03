@@ -181,6 +181,7 @@ with gr.Blocks(title="Shri Bhagavad Gita", fill_width=True) as ui:
                     label="Record / Upload",
                     scale=2,
                 )
+                audio_output = gr.Audio(label="Recitation",type="filepath", autoplay=True, interactive=False)
 
         with gr.Column(elem_classes=["gita-browse-panel"]):
             gr.Markdown("### Browse verses")
@@ -236,7 +237,7 @@ with gr.Blocks(title="Shri Bhagavad Gita", fill_width=True) as ui:
         evt.then(
             lambda v, t: play_recitation(v, t),
             inputs=[verses_pending, translation_on],
-            outputs=None,
+            outputs=[audio_output],
         )
 
     practice_evt = practice_btn.click(
@@ -245,9 +246,9 @@ with gr.Blocks(title="Shri Bhagavad Gita", fill_width=True) as ui:
         outputs=[verse_md, verses_pending],
     )
     practice_evt.then(
-        lambda verses: play_recitation(verses, translation_on=False),
+        lambda verses: play_recitation(verses,False),
         inputs=[verses_pending],
-        outputs=None,
+        outputs=[audio_output],
     )
 
 if __name__ == "__main__":

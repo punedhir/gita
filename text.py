@@ -258,8 +258,12 @@ def analyse_chat(
 
 def play_recitation(verses: list[dict], translation_on: bool) -> None:
     """Play TTS after the chat UI has shown the verse text."""
+    path = None
     for data in verses or []:
-        recite_verse(data, with_translation=translation_on)
+        path = recite_verse(data, with_translation=translation_on)
+        if path:
+            return path
+    return None
 
 
 def chat_with_audio(

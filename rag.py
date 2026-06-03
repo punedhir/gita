@@ -291,14 +291,17 @@ def format_verse_markdown(data: dict, show_translation: bool = True) -> str:
     return "\n".join(lines)
 
 
-def recite_verse(data: dict, with_translation: bool = True) -> None:
+def recite_verse(data: dict, with_translation: bool = True):
     """Autoplay Sanskrit; add English when translation is on."""
+
     if not data:
-        return
-    if data.get("devanagiri"):
-        speak_sanskrit(data["devanagiri"])
+        return None
+    audio_path = None
+    if with_translation==False and data.get("devanagiri"):
+        return speak_sanskrit(data["devanagiri"])
     if with_translation and data.get("translation"):
-        speak_english(data["translation"])
+        return speak_english(data["translation"])
+    return audio_path
 
 
 def semantic_search(collection, query: str, n_results: int = 3) -> list[dict]:
