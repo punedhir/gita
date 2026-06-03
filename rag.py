@@ -12,7 +12,7 @@ from agents.sanskrit_translation import (
     iskcon_pdf_to_iast,
     parse_verse_sanskrit,
 )
-from agents.tts import speak_english,speak_sanskrit
+from agents.tts import speak_english,speak_sanskrit,speak_azure_sanskrit
 
 
 PDF_PATH = 'Bhagavad-gita_As_It_Is english.pdf'
@@ -298,7 +298,7 @@ def recite_verse(data: dict, with_translation: bool = True):
         return None
     audio_path = None
     if with_translation==False and data.get("devanagiri"):
-        return speak_sanskrit(data["devanagiri"])
+        return speak_azure_sanskrit(data["devanagiri"])
     if with_translation and data.get("translation"):
         return speak_english(data["translation"])
     return audio_path
