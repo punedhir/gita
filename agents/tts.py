@@ -1,7 +1,6 @@
 from pathlib import Path
 
 from kokoro_onnx import Kokoro
-import sounddevice as sd
 import numpy as np 
 from gtts import gTTS 
 import pygame, tempfile, os

@@ -14,8 +14,8 @@ from agents.sanskrit_translation import (
 )
 from agents.tts import speak_english,speak_sanskrit,speak_azure_sanskrit
 
-
-PDF_PATH = 'Bhagavad-gita_As_It_Is english.pdf'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PDF_PATH = os.path.join(BASE_DIR,'Bhagavad-gita_As_It_Is_english.pdf')
 
 # Load & Chunk PDF
 def load_pdf(pdf_path, chunk_size=500, overlap=50):
